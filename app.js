@@ -2,7 +2,7 @@ const searchInput = document.querySelector('.recherche-poke input');
 const listePoke = document.querySelector('.liste-poke');
 let allPokemon = [];
 let tableauFin = [];
-
+const chargement = document.querySelector('.loader');
 const types = {
     grass: '#78c850',
 	ground: '#E2BF65',
@@ -55,6 +55,7 @@ function fetchPokemonComplet(pokemon){
                 tableauFin = allPokemon.sort((a,b) => a.id - b.id).slice(0,21);
                 
                 createCard(tableauFin);
+                chargement.style.display = "none";
             }
         })
     })
